@@ -13,6 +13,10 @@
   </url>
   
   <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/page/about/</loc>
+  </url>
+  
+  <url>
     <loc>http://jorgescalona.github.io/blog_kattara/categories/</loc>
     <priority>0</priority>
   </url>
@@ -26,6 +30,11 @@
   <url>
     <loc>http://jorgescalona.github.io/blog_kattara/</loc>
     <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/page/</loc>
     <priority>0</priority>
   </url>
   
