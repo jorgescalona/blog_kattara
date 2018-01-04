@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/post/re/</loc>
+    <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/post/my-first-post/</loc>
+    <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/categories/fundamentos/</loc>
+    <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/</loc>
+    <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/post/</loc>
+    <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/tags/regex/</loc>
+    <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/tags/shell/</loc>
+    <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/tags/</loc>
+    <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jorgescalona.github.io/blog_kattara/tags/unix/</loc>
+    <lastmod>2018-01-03T14:52:02-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

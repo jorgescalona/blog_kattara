@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Kattara Site</title>
+    <link>http://jorgescalona.github.io/blog_kattara/tags/</link>
+    <description>Recent content in Tags on Kattara Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-ES</language>
+    <managingEditor>escajorge@gmail.com (jorgescalona)</managingEditor>
+    <webMaster>escajorge@gmail.com (jorgescalona)</webMaster>
+    <lastBuildDate>Wed, 03 Jan 2018 14:52:02 -0400</lastBuildDate>
+    
+	<atom:link href="http://jorgescalona.github.io/blog_kattara/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regex</title>
+      <link>http://jorgescalona.github.io/blog_kattara/tags/regex/</link>
+      <pubDate>Wed, 03 Jan 2018 14:52:02 -0400</pubDate>
+      <author>escajorge@gmail.com (jorgescalona)</author>
+      <guid>http://jorgescalona.github.io/blog_kattara/tags/regex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell</title>
+      <link>http://jorgescalona.github.io/blog_kattara/tags/shell/</link>
+      <pubDate>Wed, 03 Jan 2018 14:52:02 -0400</pubDate>
+      <author>escajorge@gmail.com (jorgescalona)</author>
+      <guid>http://jorgescalona.github.io/blog_kattara/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unix</title>
+      <link>http://jorgescalona.github.io/blog_kattara/tags/unix/</link>
+      <pubDate>Wed, 03 Jan 2018 14:52:02 -0400</pubDate>
+      <author>escajorge@gmail.com (jorgescalona)</author>
+      <guid>http://jorgescalona.github.io/blog_kattara/tags/unix/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

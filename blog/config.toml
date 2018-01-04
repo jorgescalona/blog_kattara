@@ -1,0 +1,54 @@
+baseURL = "http://jorgescalona.github.io/blog_kattara"
+DefaultContentLanguage = "es"
+languageCode = "es-ES"
+title = "Kattara Site"
+theme = "beautifulhugo"
+publishDir = "docs"
+
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+[Params]
+    UseChroma = true
+    subtitle = "El blog para python y otras hierbas del dev"
+    # logo = "img/avatar-icon.png"
+    # favicon = "img/favicon.ico"
+    dateFormat = "2 January de 2006"
+    commit = false
+    rss = true
+    comments = true
+    readingTime = true
+
+[Author]
+    name = "jorgescalona"
+    website = "jorgescalona.github.io"
+    email = "escajorge@gmail.com"
+    # facebook = "username"
+    # googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
+    github = "jorgescalona"
+    gitlab = "jorgemustaine"
+    twitter = "jorgemustaine"
+    # reddit = "username"
+    # linkedin = "username"
+    # xing = "username"
+    # stackoverflow = "users/XXXXXXX/username"
+    # snapchat = "username"
+    # instagram = "username"
+    # youtube = "user/username" # or channel/channelname
+    # soundcloud = "username"
+    # spotify = "username"
+    # bandcamp = "username"
+    # itchio = "username"
+    # vk = "username"
+    # paypal = "username"
+    # telegram = "username"
+
+
+[[menu.main]]
+    name = "Blog"
+    url = ""
+    weight = 1
+
+[[menu.main]]
+    name = "About"
+    url = "page/about/"
+    weight = 3

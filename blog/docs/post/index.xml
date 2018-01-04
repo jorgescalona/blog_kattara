@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Kattara Site</title>
+    <link>http://jorgescalona.github.io/blog_kattara/post/</link>
+    <description>Recent content in Posts on Kattara Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-ES</language>
+    <managingEditor>escajorge@gmail.com (jorgescalona)</managingEditor>
+    <webMaster>escajorge@gmail.com (jorgescalona)</webMaster>
+    <lastBuildDate>Wed, 03 Jan 2018 14:52:02 -0400</lastBuildDate>
+    
+	<atom:link href="http://jorgescalona.github.io/blog_kattara/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Expresiones Regulares</title>
+      <link>http://jorgescalona.github.io/blog_kattara/post/re/</link>
+      <pubDate>Wed, 03 Jan 2018 14:52:02 -0400</pubDate>
+      <author>escajorge@gmail.com (jorgescalona)</author>
+      <guid>http://jorgescalona.github.io/blog_kattara/post/re/</guid>
+      <description>Expresiones Regulares Son patrones de texto mediantes los cuales se pueden optimizar actividades de busqueda y reconocimiento de segmentos de cadenas de caracteres en un archivo especifico o en un conjunto de ellos. Algunos ejemplos de lo que puede hacerse con re son cosas como:
+ Comprobar o validar que una entrada en un formulario HTML sea una dirección de correo electrónico válida. Inspeccionar si un patrón de texto aparece en un archivo.</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>http://jorgescalona.github.io/blog_kattara/post/my-first-post/</link>
+      <pubDate>Wed, 03 Jan 2018 14:52:02 -0400</pubDate>
+      <author>escajorge@gmail.com (jorgescalona)</author>
+      <guid>http://jorgescalona.github.io/blog_kattara/post/my-first-post/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

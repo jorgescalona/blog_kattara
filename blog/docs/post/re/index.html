@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Expresiones Regulares</title>
+  <meta property="og:title" content="Expresiones Regulares" />
+  <meta name="twitter:title" content="Expresiones Regulares" />
+  <meta name="description" content="Expresiones Regulares Son patrones de texto mediantes los cuales se pueden optimizar actividades de busqueda y reconocimiento de segmentos de cadenas de caracteres en un archivo especifico o en un conjunto de ellos. Algunos ejemplos de lo que puede hacerse con re son cosas como:
+ Comprobar o validar que una entrada en un formulario HTML sea una dirección de correo electrónico válida. Inspeccionar si un patrón de texto aparece en un archivo.">
+  <meta property="og:description" content="Expresiones Regulares Son patrones de texto mediantes los cuales se pueden optimizar actividades de busqueda y reconocimiento de segmentos de cadenas de caracteres en un archivo especifico o en un conjunto de ellos. Algunos ejemplos de lo que puede hacerse con re son cosas como:
+ Comprobar o validar que una entrada en un formulario HTML sea una dirección de correo electrónico válida. Inspeccionar si un patrón de texto aparece en un archivo.">
+  <meta name="twitter:description" content="Expresiones Regulares Son patrones de texto mediantes los cuales se pueden optimizar actividades de busqueda y reconocimiento de segmentos de cadenas de caracteres en un archivo especifico o en un …">
+  <meta name="author" content="jorgescalona"/>
+  <meta property="og:image" content="http://www.cs.iit.edu/~cs561/cs521/automata/framework/img/regex.jpg" />
+  <meta name="twitter:image" content="http://www.cs.iit.edu/~cs561/cs521/automata/framework/img/regex.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@jorgemustaine" />
+  <meta name="twitter:creator" content="@jorgemustaine" />
+  <meta property="og:url" content="http://jorgescalona.github.io/blog_kattara/post/re/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kattara Site" />
+
+  <meta name="generator" content="Hugo 0.32" />
+  <link rel="canonical" href="http://jorgescalona.github.io/blog_kattara/post/re/" />
+  <link rel="alternate" href="http://jorgescalona.github.io/blog_kattara/index.xml" type="application/rss+xml" title="Kattara Site">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://jorgescalona.github.io/blog_kattara/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jorgescalona.github.io/blog_kattara/css/codeblock.css" /><link rel="stylesheet" href="http://jorgescalona.github.io/blog_kattara/css/syntax.css" />
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Conmuta navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jorgescalona.github.io/blog_kattara">Kattara Site</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/blog_kattara">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/blog_kattara/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Expresiones Regulares</h1>
+                
+                
+                  <span class="post-meta">
+  
+  
+  <i class="fa fa-calendar-o"></i>&nbsp;Publicado el 3 January de 2018
+  
+  
+  &nbsp;|&nbsp;
+  <i class="fa fa-clock-o"></i> 7 minutos (1482 palabras)
+  
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<h1 id="expresiones-regulares">Expresiones Regulares</h1>
+
+<p>Son patrones de texto mediantes los cuales se pueden optimizar actividades de busqueda y reconocimiento de segmentos de cadenas de caracteres en un archivo especifico o en un conjunto de ellos. Algunos ejemplos de lo que puede hacerse con re son cosas como:</p>
+
+<ul>
+<li>Comprobar o validar que una entrada en un formulario HTML sea una dirección de correo electrónico válida.</li>
+<li>Inspeccionar si un patrón de texto aparece en un archivo. esto puede ser l busqued de una palabra o un porción de la misma en un documento.</li>
+<li>Extraer porciones de texto de un documento. Ej: extraer el código postal de una dirección.</li>
+<li>Reemplazar partes de un texto. Ej: Cambiar &ldquo;Azúl&rdquo; por &ldquo;Rojo&rdquo; en un documento.</li>
+</ul>
+
+<p>Como podemos apreciar la aplicabilidad es extensa pero la agilidad obtenida en l manipulación de grandes porciones de archivos es una compensación hasta adictiva para todos aquellos que pretendan automatizar tareas rutinarias, que de otra mnera serian tediosamente largas y en la práctica una sincera perdida de tiempo. Las re son independientes del lenguaje que se este usando.</p>
+
+<h3 id="antecedentes">Antecedentes:</h3>
+
+<ul>
+<li>Warren McCulloch and Walter Pitts NeuroFísicos publicaron  <a href="http://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf">&ldquo;A logical calculus of the ideas immanent in nervous activity.&rdquo;</a> (1943). Este paper no solo representa el inicio de las re sino que también propone el primer modelo matemático para redes neuronales.</li>
+<li>Stephen Kleene, escribió el paper <a href="https://www.rand.org/content/dam/rand/pubs/research_memoranda/2008/RM704.pdf">&ldquo;Representation of events in nerve nets and finite automata&rdquo;</a> (1956), donde acuñó los terminos <strong>regular sets</strong> y <strong>regular expressions</strong>.</li>
+<li>Doce años después un ingeniero publica: <a href="https://www.fing.edu.uy/inco/cursos/intropln/material/p419-thompson.pdf">&ldquo;Regular Expression Search Algorithm&rdquo;</a> Ken Thompson (1968), Ken es conocido por ser diseñador e implementador en UNIX del <strong>lenguaje B</strong>, el UTF-8, entre otros trabajos.</li>
+<li>El próximo hito importante fue la introducción de una biblioteca no propietaria de regex por Henry Spence y más tarde la creación del lenguaje de guiones PERL por Larry Wall. PERL agregó muchas modificaciones a la sintaxis de regex creando lo que se conoce como <a href="https://perldoc.perl.org/perlre.html">&ldquo;Perl Flavor&rdquo;</a> o los sabores de perl. Muchas de las implementaciones posteriores en el resto de los lenguajes se basan en el perl flavor.</li>
+<li>la IEEE a través del estandar POSIX intentó un mejor soporte Unicode para regex esto se conoce como el <a href="https://regular-expressions.mobi/posix.html?wlr=1">&ldquo;POSIX flavor&rdquo;</a>.</li>
+<li>Ahora mismo python posee un módulo para regex que soporta el estilo perl <a href="https://pypi.python.org/pypi/regex">Documentación python regex module</a>. Además del ya archi conocido modulo estandar para <a href="https://docs.python.org/2/library/re.html">python2</a> y <a href="https://docs.python.org/3/library/re.html">python3</a>.</li>
+</ul>
+
+<h3 id="definiciones">Definiciones:</h3>
+
+<p>Una Regex es un patrón de texto que consiste en caracteres ordinarios precedidos por <strong>&rdquo;/&rdquo;</strong> y metcarateres precedidos por <strong>&ldquo;\&rdquo;</strong>.</p>
+
+<p><strong><em>Metacaracteres:</em></strong>
+Caracteres con un significado especial para las búsquedas. Tienen un significado especial cuando se utilizan en una expresión de búsqueda.</p>
+
+<p><strong><em>Comienzo y final de una línea:</em></strong> El <strong>&rdquo;^&rdquo;</strong> (acento circunflejo) hace referencia al comienzo de la línea en una búsqueda y el <strong>&rdquo;$&rdquo;</strong> (signo dólar) tiene referencia con el final de la línea.</p>
+
+<blockquote>
+<p>/^www/
+/$com/</p>
+</blockquote>
+
+<p><strong>Comodines</strong>: Regex tiene muchos aspectos heredados de <a href="https://es.wikipedia.org/wiki/Ed_(Unix) recordar cada uno de ellos se torna dificil, porque el significado de un simbolo depende de dónde se utilice en una expresión. Por ejemplo, en modo de entrada un punto __&quot;.&quot;__ (punto">ed</a> es simplemente un carácter ordinario de texto, salvo que se encuentre sólo en una línea, en cuyo caso significa &ldquo;vuelve al modo orden&rdquo;. En modo orden, el <strong>&rdquo;.&rdquo;</strong> significa &ldquo;cualquier carácter&rdquo;. Así, la orden:</p>
+
+<blockquote>
+<p>/a..b/</p>
+</blockquote>
+
+<p>significa &ldquo;encuentra una <strong>a</strong> y una <strong>b</strong> separadas por tres caracteres cualesquiera&rdquo;. La orden:</p>
+
+<blockquote>
+<p>/./</p>
+</blockquote>
+
+<p>significa &ldquo;encuentra cualquier carácter&rdquo; (excepto un carácter de nueva-línea). Cuando el <strong>&rdquo;.&rdquo;</strong> punto aparece en el lado derecho de una expresión de sustitución, significa &ldquo;un punto&rdquo;. Esto puede combinarse en una única orden:</p>
+
+<blockquote>
+<p>.s/././</p>
+</blockquote>
+
+<p>Esta orden muestra todos los significados de un <strong>&rdquo;.&rdquo;</strong> en una expresión. El primer <strong>&rdquo;.&rdquo;</strong> significa &ldquo;en la línea actual sustituya (para cualquier carácter) un punto (.)&rdquo; por Ejemplo:</p>
+
+<blockquote>
+<p>p
+Buenos días
+s/././
+.uenos días</p>
+</blockquote>
+
+<p><strong>El * (asterisco)</strong>. &ldquo;Tantas ocurrencias como ocurran incluyendo ninguna&rdquo;. Así la orden:</p>
+
+<blockquote>
+<p>s/xx*/y/</p>
+</blockquote>
+
+<p>da instrucciones que en <strong>ed</strong> sustituyen dos o más ocurrencias de <strong>&ldquo;x&rdquo;</strong> por una única <strong>&ldquo;y&rdquo;</strong>. La orden:</p>
+
+<blockquote>
+<p>s/x.*y/Y</p>
+</blockquote>
+
+<p>significa &ldquo;sustituye el carácter Y por cualquier cadena que comience por una <strong>&ldquo;x&rdquo;</strong> y finalice con una <strong>&ldquo;y&rdquo;</strong> separadas por cualquier número de caracteres&rdquo;. Las cadenas <strong>&ldquo;xqwertyy&rdquo;, &ldquo;xasdy&rdquo; y &ldquo;xy&rdquo;</strong> serían sustituidas por <strong>&ldquo;Y&rdquo;</strong>.</p>
+
+<p><strong><em>Recomendación:</em></strong> Todos estos ejemplos se pueden ejecutar desde el shell con la instrucción [<strong>&ldquo;sed&rdquo;</strong>](<a href="https://es.wikipedia.org/wiki/Sed_(inform%C3%A1tica">https://es.wikipedia.org/wiki/Sed_(inform%C3%A1tica</a>) texto simple por ejemplo:</p>
+
+<blockquote>
+<p>sed -i &rsquo;s/x.*y/Y/&rsquo; ejemplo.txt</p>
+</blockquote>
+
+<p><strong>El &amp; (ampersand).</strong> el &amp; es una abreviación que ahorra mucha escritura. Supongamos que se quiere cambiar:</p>
+
+<blockquote>
+<p>Este proyecto ha sido un éxito.</p>
+</blockquote>
+
+<p>por</p>
+
+<blockquote>
+<p>(Este proyecto ha sido un éxito.)</p>
+</blockquote>
+
+<p>Podría utilizar la orden</p>
+
+<blockquote>
+<p>s/Este proyecto ha sido un éxito./(Este proyecto ha sido un éxito.)/</p>
+</blockquote>
+
+<p>Pero utilizando <strong>&ldquo;&amp;&rdquo;</strong> se simplifica a:</p>
+
+<blockquote>
+<p>s/Este proyecto ha sido un éxito./(&amp;)/</p>
+</blockquote>
+
+<p><strong>Clases de caracteres en la búsqueda:[]</strong></p>
+
+<p>Se pueden especificar clases de cosas a buscar, para lo cual se usa <strong>&ldquo;[]&rdquo;</strong> por ejemplo:</p>
+
+<blockquote>
+<p>[xy]</p>
+</blockquote>
+
+<p>representa a la clase de letras minúsculas que son <strong>&ldquo;x&rdquo;</strong> o <strong>&ldquo;z&rdquo;</strong> de está forma:</p>
+
+<blockquote>
+<p>/[xz]/</p>
+</blockquote>
+
+<p>buscará la siguiente <strong>&ldquo;x&rdquo;</strong> o la siguiente <strong>&ldquo;z&rdquo;</strong> de la expresión.</p>
+
+<blockquote>
+<p>[fF]</p>
+</blockquote>
+
+<p><strong>&ldquo;f&rdquo;</strong> en minúsculas o mayúsculas, en consecuencia la orden de búsqueda:</p>
+
+<blockquote>
+<p>/[fF]reddy/</p>
+</blockquote>
+
+<p>encontrará a &ldquo;freddy&rdquo; y &ldquo;Freddy&rdquo;. La expresión:</p>
+
+<blockquote>
+<p>[0123456789]</p>
+</blockquote>
+
+<p>buscará cualquier dígito, pero se puede simplicar con:</p>
+
+<blockquote>
+<p>[0-9]</p>
+</blockquote>
+
+<p>que representá toodos los caracteres en el rango <strong>&ldquo;0&rdquo;</strong> al <strong>&ldquo;9&rdquo;</strong>. La orden quedará:</p>
+
+<blockquote>
+<p>/[0-9]/</p>
+</blockquote>
+
+<p>ahora:</p>
+
+<blockquote>
+<p>[A-Z]</p>
+</blockquote>
+
+<p>representa todos los caracteres del rango de la <strong>&ldquo;A&rdquo;</strong> a la <strong>&ldquo;Z&rdquo;</strong>. para definir un caracter que no se encuentr en está clase utilizar el <strong>&rdquo;^&rdquo;</strong> circunflejo entre los corchetes <strong>&ldquo;[^]&rdquo;</strong> lo cual representa cualquier carácter <strong><em>no</em></strong> incluido en los corchetes. la expresión siguiente:</p>
+
+<blockquote>
+<p>[^0-9]</p>
+</blockquote>
+
+<p>representa cualquier carácter que no este entre <strong>&ldquo;0&rdquo;</strong> y <strong>&ldquo;9&rdquo;</strong>; en otras palabras, cualquier carácter que no sea un dígito.</p>
+
+<p><strong>caracteres especiales en Regex Tabla 1</strong></p>
+
+<table>
+<thead>
+<tr>
+<th><strong>Carácter</strong></th>
+<th><strong>Significado</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>&rdquo;.&rdquo;</strong></td>
+<td>Cualquier carácter distinto de nueva línea.</td>
+</tr>
+
+<tr>
+<td><strong>&ldquo;*&rdquo;</strong></td>
+<td>Cero o más ocurreencias del caracter anterior.</td>
+</tr>
+
+<tr>
+<td><strong>&rdquo;.*&rdquo;</strong></td>
+<td>Cero o más ocurrencias de cualquier carácter.</td>
+</tr>
+
+<tr>
+<td><strong>&rdquo;^&rdquo;</strong></td>
+<td>Comienzo de línea.</td>
+</tr>
+
+<tr>
+<td><strong>&rdquo;$&rdquo;</strong></td>
+<td>Final de línea.</td>
+</tr>
+
+<tr>
+<td><strong>&ldquo;[&ndash;]&rdquo;</strong></td>
+<td>Identifica a la clase de caracteres definida entre corchetes.</td>
+</tr>
+
+<tr>
+<td><strong>&ldquo;[^&ndash;]&rdquo;</strong></td>
+<td>Identifica a cualquier carácter no incluido en la clase definida entre corchetes.</td>
+</tr>
+
+<tr>
+<td><strong>&ldquo;\&rdquo;</strong></td>
+<td>Caraćter de escape; trata al siguiente carácter, <strong>&ldquo;X&rdquo;</strong> como una X literal</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Desactivación de caracteres especiales:</strong></p>
+
+<p>Los caracteres <strong>$ [] *</strong> son parte de la sintaxis de las Regex, todos tienen un significado especial en las búsquedas. Vea la Tabla 1. Ahora bien ¿qué pasa si queremos buscar uno de esos caracteres en un archivo? ¿qué ocurre si se necesita encontrar el <strong>&rdquo;$&rdquo;</strong> en una memoria? El carácter <strong>&ldquo;\&rdquo;</strong> Backslash se utiliza par desactivar ese significado especial de los metacaracteres. <strong>Un metacarácter precedido de un \ significá el carácter literal</strong>. Si usted teclea:</p>
+
+<blockquote>
+<p>/ . /</p>
+</blockquote>
+
+<p>el interprete buscaría cualquier carácter, la siguiente orden, sin embargo:</p>
+
+<blockquote>
+<p>/ \ . /</p>
+</blockquote>
+
+<p>busca un punto <strong>&rdquo;.&rdquo;</strong> literalmente y no cualquier carácter. La siguiente orden:</p>
+
+<blockquote>
+<p>/ \ * /</p>
+</blockquote>
+
+<p>busca un * literalmente. Y por supuesto:</p>
+
+<blockquote>
+<p>/ \ \ /</p>
+</blockquote>
+
+<p>busca un <strong>&ldquo;\&rdquo;</strong> Backslash literal. y</p>
+
+<blockquote>
+<p>/ \ $ /</p>
+</blockquote>
+
+<p>busca un <strong>&rdquo;$&rdquo;</strong></p>
+
+<p>Estos patrones de busqueda pueden ser usados de distintas formas uno de los usos que particularmente le doy es con grep (dato curioso el nombre de este comando viene de la forma que tiene el editor <strong>ed</strong> para las busquedas <strong>g/re/p</strong> o <strong>global/regular expression/print</strong>), que es una utilidad de UNIX para desde la shell ubicar una línea en un archivo específico que coincida con un patrón un ejemplo sería:</p>
+
+<blockquote>
+<p>grep -InRi &lsquo;<sup class="footnote-ref" id="fnref:mM"><a rel="footnote" href="#fn:mM">1</a></sup>*ay&rsquo; mbox.txt
+54165:May have missed an end tag</p>
+</blockquote>
+
+<p>en el anterior obtengo una lista númerada de las líneas dentro del archivo mbox.txt que coinciden con la expresión regular entre comillas simples. Espero que ya te estes percatando del poder de las Regex. Otra buena idea es usar guiones (scripts) para <strong>sed o ed</strong>, con lo cual podemos realizar tareas super rápidas de modificación sobre archivos si quieres profundizar sobre el tema recomiendo el siguiente <a href="https://www.americati.com/doc/sed/sed.html">enlace</a>.</p>
+
+<h3 id="python">Python</h3>
+
+<p>Las regex son soportadas por el módulo <strong>re</strong> una vez importado el mismo podemos comenzar a comparar patrones para hacerlo es necesario transformar un patron a <strong>bytecode</strong>, el bytecode puede ser luego ejecutado por un motor en C por lo tanto es un lenguaje intermedio o pasarela.</p>
+
+<blockquote>
+<p>patron = re.compile(r&rsquo;\bfoo\b&rsquo;)
+patron.match(&ldquo;foo bar&rdquo;)</p>
+</blockquote>
+
+<h2 id="backslash-en-cadenas-literales-y-python">Backslash en cadenas literales y python</h2>
+
+<p>Las Regex no forman parte del core de python, el Backslash se usa en regex para indicar el uso de un metacaracter, pero el mismo es usado en python para el uso de caracteres especiales esto trae consigo un pequeño inconveniente, supongamos que deseamos hacer coincidir un patron especifico para encontrar el caracter &lsquo;\&rsquo; en una cadena especifica supondria entonces un dilema interpretativo lo cual python resuelve usando <strong>&ldquo;\&ldquo;</strong> pero a la larga las expresiones se haran más larga y confusas un ejemplo de ello sería:</p>
+
+<blockquote>
+<p>patron = re.compile(&rsquo;\\\\&lsquo;)
+patron.match(&rdquo;\\\\author&rdquo;)
+&lt;_sre.SRE_Match at 0x104a88e68&gt;</p>
+</blockquote>
+
+<p>Para evitar que la nomenclatura se haga más complicada python asume el raw string de la siguiente manera:</p>
+
+<blockquote>
+<p>pattern = re.compile(r&rdquo;\&rdquo;)
+pattern.match(r&rdquo;\author&rdquo;)
+&lt;_sre.SRE_Match at 0x104a88f38&gt;</p>
+</blockquote>
+
+<p>_<strong>En Python existen dos tipos de objetos regex:</strong>
+* RegexObject:  también conocido como <em>Objeto Patrón</em>.
+* MatchObject: Representa el patrón de coincidencia.</p>
+
+<h3 id="referencias">Referencias</h3>
+
+<ul>
+<li><a href="https://www.amazon.com.mx/Unix-System-Release-Richard-Rosinski/dp/0078821304">UNIX Sistema V Versión 4 2da Edición</a> Kenneth H. Rosen, Richard R. Rosinski, James M. Farber, Douglas A. Host. Editorial McGrawHill (1997).</li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:mM">mM <a class="footnote-return" href="#fnref:mM"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://jorgescalona.github.io/blog_kattara/post/my-first-post/" data-toggle="tooltip" data-placement="top" title="My First Post">&larr; Artículo anterior</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:escajorge@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/jorgescalona" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://gitlab.com/jorgemustaine" title="GitLab">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-gitlab fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/jorgemustaine" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="http://jorgescalona.github.io/blog_kattara/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="jorgescalona.github.io">jorgescalona</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2018
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://jorgescalona.github.io/blog_kattara">Kattara Site</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.32</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://jorgescalona.github.io/blog_kattara/js/main.js"></script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="http://jorgescalona.github.io/blog_kattara/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+
