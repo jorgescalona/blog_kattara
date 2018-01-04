@@ -10,13 +10,12 @@ pygmentsUseClasses = true
 [Params]
     UseChroma = true
     subtitle = "El blog para python y otras hierbas del dev"
-    # logo = "img/avatar-icon.png"
-    # favicon = "img/favicon.ico"
+    logo = "img/cropped-laevigata3-xl.png"
+    favicon = "img/fcropped-laevigata3-xl.png"
     dateFormat = "2 January de 2006"
     commit = false
-    rss = true
-    comments = true
-    readingTime = true
+    # rss = true
+    # comments = true
 
 [Author]
     name = "jorgescalona"
@@ -40,7 +39,7 @@ pygmentsUseClasses = true
     # itchio = "username"
     # vk = "username"
     # paypal = "username"
-    # telegram = "username"
+    telegram = "jorgemustaine"
 
 
 [[menu.main]]
