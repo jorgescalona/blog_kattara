@@ -1,2 +1,2 @@
 # blog_kattara
-static blog to tecnologies posts
+static blog to tecnologies posts.

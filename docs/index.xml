@@ -32,5 +32,14 @@
       <description></description>
     </item>
     
+    <item>
+      <title>About me</title>
+      <link>http://jorgescalona.github.io/blog_kattara/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>escajorge@gmail.com (jorgescalona)</author>
+      <guid>http://jorgescalona.github.io/blog_kattara/page/about/</guid>
+      <description>Jorgescalona Ingeniero de Electrónica y Telecomunicaiones, apasionado de GNU/Linux, Bash, Python y demás hierbas.</description>
+    </item>
+    
   </channel>
 </rss>
