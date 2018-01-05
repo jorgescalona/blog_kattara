@@ -1,9 +1,6 @@
 [submodule "blog/themes/beautifulhugo"]
 	path = blog/themes/beautifulhugo
 	url = https://github.com/halogenica/beautifulhugo.git
-[submodule "blog/themes/hugo_theme_beg"]
-	path = blog/themes/hugo_theme_beg
-	url = https://github.com/dim0627/hugo_theme_beg.git
 [submodule "blog/public"]
 	path = blog/public
 	url = git@github.com:jorgescalona/jorgescalona.github.io.git
