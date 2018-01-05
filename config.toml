@@ -48,6 +48,6 @@ pygmentsUseClasses = true
     weight = 1
 
 [[menu.main]]
-    name = "About"
+    name = "Acerca de"
     url = "page/about/"
     weight = 3
