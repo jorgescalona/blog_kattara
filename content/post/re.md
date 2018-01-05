@@ -4,7 +4,7 @@ date: 2018-01-03T14:52:02-04:00
 draft: false
 tags: ["Regex", "Shell", "Unix"]
 categories: ["fundamentos"]
-image: http://www.cs.iit.edu/~cs561/cs521/automata/framework/img/regex.jpg
+image: https://www.cs.iit.edu/~cs561/cs521/automata/framework/img/regex.jpg
 ---
 
 # Expresiones Regulares
@@ -20,7 +20,7 @@ Como podemos apreciar la aplicabilidad es extensa pero la agilidad obtenida en l
 
 ### Antecedentes:
 
-* Warren McCulloch and Walter Pitts NeuroFísicos publicaron  ["A logical calculus of the ideas immanent in nervous activity."](http://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf) (1943). Este paper no solo representa el inicio de las re sino que también propone el primer modelo matemático para redes neuronales.
+* Warren McCulloch and Walter Pitts NeuroFísicos publicaron  ["A logical calculus of the ideas immanent in nervous activity."](https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf) (1943). Este paper no solo representa el inicio de las re sino que también propone el primer modelo matemático para redes neuronales.
 * Stephen Kleene, escribió el paper ["Representation of events in nerve nets and finite automata"](https://www.rand.org/content/dam/rand/pubs/research_memoranda/2008/RM704.pdf) (1956), donde acuñó los terminos __regular sets__ y __regular expressions__.
 * Doce años después un ingeniero publica: ["Regular Expression Search Algorithm"](https://www.fing.edu.uy/inco/cursos/intropln/material/p419-thompson.pdf) Ken Thompson (1968), Ken es conocido por ser diseñador e implementador en UNIX del __lenguaje B__, el UTF-8, entre otros trabajos.
 * El próximo hito importante fue la introducción de una biblioteca no propietaria de regex por Henry Spence y más tarde la creación del lenguaje de guiones PERL por Larry Wall. PERL agregó muchas modificaciones a la sintaxis de regex creando lo que se conoce como ["Perl Flavor"](https://perldoc.perl.org/perlre.html) o los sabores de perl. Muchas de las implementaciones posteriores en el resto de los lenguajes se basan en el perl flavor.
