@@ -10,7 +10,7 @@ pygmentsUseClasses = true
 [Params]
     UseChroma = true
     subtitle = "El blog para python y otras hierbas del dev"
-    logo = "img/cropped-laevigata3-xl.png"
+    # logo = "img/cropped-laevigata3-xl.png"
     # favicon = "img/fcropped-laevigata3-xl.png"
     dateFormat = "2 January de 2006"
     commit = false
